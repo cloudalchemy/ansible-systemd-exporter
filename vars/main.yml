@@ -8,5 +8,6 @@ go_arch_map:
 
 go_arch: "{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
 
-<<APPLICATION>>_system_user: "<<APPLICATION>>"
-<<APPLICATION>>_system_group: "<<APPLICATION>>"
+_systemd_exporter_binary_install_dir: "/usr/local/bin"
+_systemd_exporter_system_group: "systemd-exp"
+_systemd_exporter_system_user: "{{ _systemd_exporter_system_group }}"

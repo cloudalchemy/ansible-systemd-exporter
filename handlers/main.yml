@@ -1,7 +1,7 @@
 ---
-- name: restart <<APPLICATION>>
+- name: restart systemd_exporter
   become: true
   systemd:
     daemon_reload: true
-    name: <<APPLICATION>>
+    name: systemd_exporter
     state: restarted

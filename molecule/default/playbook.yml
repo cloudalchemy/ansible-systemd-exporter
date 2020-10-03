@@ -2,4 +2,6 @@
 - hosts: all
   any_errors_fatal: true
   roles:
-    - ansible-<<APPLICATION>>
+    - ansible-systemd-exporter
+  vars:
+    systemd_exporter_web_listen_address: "127.0.0.1:9558"

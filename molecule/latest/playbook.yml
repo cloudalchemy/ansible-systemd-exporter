@@ -3,6 +3,6 @@
   hosts: all
   any_errors_fatal: true
   roles:
-    - ansible-<<APPLICATION>>
+    - ansible-systemd-exporter
   vars:
-    <<APPLICATION>>: latest
+    systemd_exporter_version: latest

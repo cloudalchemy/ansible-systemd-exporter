@@ -1,8 +1,7 @@
 ---
 galaxy_info:
-  author: <<AUTHOR>>
-  description: Deploy <<APPLICATION>>
-  role_name: <<APPLICATION>>
+  author: Pawel Krupa
+  description: Prometheus SystemD Exporter
   license: MIT
   company: none
   min_ansible_version: 2.7
@@ -25,5 +24,9 @@ galaxy_info:
         - 31
   galaxy_tags:
     - monitoring
+    - prometheus
+    - exporter
+    - metrics
+    - systemd
 
 dependencies: []
