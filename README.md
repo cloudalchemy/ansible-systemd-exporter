@@ -13,7 +13,7 @@ Deploy prometheus [systemd exporter](https://github.com/povilasv/systemd_exporte
 
 ## Requirements
 
-- Ansible >= 2.7 (It might work on previous versions, but we cannot guarantee it)
+- Ansible >= 2.8 (It might work on previous versions, but we cannot guarantee it)
 - gnu-tar on Mac deployer host (`brew install gnu-tar`)
 
 ## Role Variables
@@ -25,6 +25,11 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `systemd_exporter_version` | 0.4.0 | SystemD exporter package version. Also accepts latest as parameter. |
 | `systemd_exporter_binary_local_dir` | "" | Allows to use local packages instead of ones distributed on github. As parameter it takes a directory where `systemd_exporter` binary is stored on host on which ansible is ran. This overrides `systemd_exporter_version` parameter |
 | `systemd_exporter_web_listen_address` | "0.0.0.0:9558" | Address on which systemd exporter will listen |
+| `systemd_exporter_enable_restart_count` | false | Enables service restart count metrics. This feature only works with systemd 235 and above |
+| `systemd_exporter_enable_ip_accounting` | false | Enables service ip accounting metrics. This feature only works with systemd 235 and above |
+| `systemd_exporter_enable_file_descriptor_size` | false | Enables file descriptor size metrics. This feature will cause exporter to run as root as it needs access to /proc/X/fd |
+| `systemd_exporter_unit_allowlist` | "" | Include some systemd units. Expects a regex. More in https://github.com/povilasv/systemd_exporter#configuration |
+| `systemd_exporter_unit_denylist` | "" | Exclude some systemd units. Expects a regex. More in https://github.com/povilasv/systemd_exporter#configuration |
 
 ## Example
 

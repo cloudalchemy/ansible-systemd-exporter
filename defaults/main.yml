@@ -3,8 +3,8 @@ systemd_exporter_version: 0.4.0
 systemd_exporter_binary_local_dir: ""
 systemd_exporter_web_listen_address: "0.0.0.0:9558"
 
-systemd_exporter_enable_restart_count: true
-systemd_exporter_enable_ip_accounting: true
+systemd_exporter_enable_restart_count: false
+systemd_exporter_enable_ip_accounting: false
 systemd_exporter_enable_file_descriptor_size: false
 
 systemd_exporter_unit_allowlist: ""
