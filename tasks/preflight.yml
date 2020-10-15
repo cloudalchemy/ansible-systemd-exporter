@@ -14,12 +14,24 @@
 
 - name: Set systemd version fact
   set_fact:
-    systemd_exporter_systemd_version: "{{ __systemd_version.stdout_lines[0] | regex_replace('^systemd\\s(\\d+).*$', '\\1') }}"
+    _systemd_exporter_systemd_version: "{{ __systemd_version.stdout_lines[0] | regex_replace('^systemd\\s(\\d+).*$', '\\1') }}"
 
 - name: Naive assertion of proper listen address
   assert:
     that:
       - "':' in systemd_exporter_web_listen_address"
+
+- name: Assert that systemd version is >= 235 when enabling ip accounting or measuring restart count
+  assert:
+    that:
+      - _systemd_exporter_systemd_version | int >= 232
+  when: systemd_exporter_enable_ip_accounting or systemd_exporter_enable_restart_count
+
+- name: Set user and group to root to allow access to /proc/X/fd
+  set_fact:
+    _systemd_exporter_system_group: "root"
+    _systemd_exporter_system_user: "root"
+  when: systemd_exporter_enable_file_descriptor_size
 
 - name: Check if systemd_exporter is installed
   stat:

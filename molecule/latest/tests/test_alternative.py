@@ -7,8 +7,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("files", [
-    "/etc/systemd/system/node_exporter.service",
-    "/usr/local/bin/node_exporter"
+    "/etc/systemd/system/systemd_exporter.service",
+    "/usr/local/bin/systemd_exporter"
 ])
 def test_files(host, files):
     f = host.file(files)
@@ -17,11 +17,11 @@ def test_files(host, files):
 
 
 def test_service(host):
-    s = host.service("node_exporter")
+    s = host.service("systemd_exporter")
     # assert s.is_enabled
     assert s.is_running
 
 
 def test_socket(host):
-    s = host.socket("tcp://0.0.0.0:9100")
+    s = host.socket("tcp://0.0.0.0:9558")
     assert s.is_listening
