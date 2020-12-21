@@ -7,8 +7,3 @@ go_arch_map:
   armv6l: 'armv6'
 
 go_arch: "{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
-
-_systemd_exporter_binary_install_dir: "/usr/local/bin"
-
-_systemd_exporter_system_group: "systemd-exporter"
-_systemd_exporter_system_user: "{{ _systemd_exporter_system_group }}"

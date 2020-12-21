@@ -46,7 +46,6 @@ jobs:
     environment:
       GIT_MAIL: cloudalchemybot@gmail.com
       GIT_USER: cloudalchemybot
-      GIT_COMMIT_DESC: git log --format=%B -n 1 ${CIRCLE_SHA1}
     steps:
       - checkout
       - setup_remote_docker
@@ -55,6 +54,7 @@ jobs:
       - run: git config --global user.name "${GIT_USER}"
       - run: |
           GIT_TAG=none
+          GIT_COMMIT_DESC=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
           echo "Last commit message: ${GIT_COMMIT_DESC}"
           case "${GIT_COMMIT_DESC}" in
             *"[patch]"*|*"[fix]"*|*"[bugfix]"* )   GIT_TAG=$(git semver --next-patch) ;;
