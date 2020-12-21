@@ -25,12 +25,14 @@
   tags:
     - systemd_exporter_configure
 
-- name: Ensure SystemD Exporter is enabled on boot
+- name: Ensure systemd exporter is enabled on boot
   become: true
   systemd:
     daemon_reload: true
     name: systemd_exporter
     enabled: true
     state: started
+  when:
+    - not ansible_check_mode
   tags:
     - systemd_exporter_run

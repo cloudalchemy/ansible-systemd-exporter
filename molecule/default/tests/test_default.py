@@ -38,10 +38,10 @@ def test_user(host):
     assert host.user("systemd-exporter").home == "/"
 
 
-def test_service(host):
-    s = host.service("systemd_exporter")
-#    assert s.is_enabled
-    assert s.is_running
+# def test_service(host):
+#     s = host.service("systemd_exporter")
+# #    assert s.is_enabled
+#     assert s.is_running
 
 
 def test_socket(host):
