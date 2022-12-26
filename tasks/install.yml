@@ -21,7 +21,7 @@
     - name: Download systemd_exporter binary to local folder
       become: false
       get_url:
-        url: "https://github.com/povilasv/systemd_exporter/releases/download/v{{ systemd_exporter_version }}/systemd_exporter-{{ systemd_exporter_version }}.linux-{{ go_arch }}.tar.gz"
+        url: "https://github.com/prometheus-community/systemd_exporter/releases/download/v{{ systemd_exporter_version }}/systemd_exporter-{{ systemd_exporter_version }}.linux-{{ go_arch }}.tar.gz"
         dest: "/tmp/systemd_exporter-{{ systemd_exporter_version }}.linux-{{ go_arch }}.tar.gz"
         checksum: "sha256:{{ systemd_exporter_checksum }}"
         mode: '0644'
