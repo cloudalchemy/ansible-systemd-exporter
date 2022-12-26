@@ -28,8 +28,8 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `systemd_exporter_enable_restart_count` | false | Enables service restart count metrics. This feature only works with systemd 235 and above |
 | `systemd_exporter_enable_ip_accounting` | false | Enables service ip accounting metrics. This feature only works with systemd 235 and above |
 | `systemd_exporter_enable_file_descriptor_size` | false | Enables file descriptor size metrics. This feature will cause exporter to run as root as it needs access to /proc/X/fd |
-| `systemd_exporter_unit_allowlist` | "" | Include some systemd units. Expects a regex. More in https://github.com/povilasv/systemd_exporter#configuration |
-| `systemd_exporter_unit_denylist` | "" | Exclude some systemd units. Expects a regex. More in https://github.com/povilasv/systemd_exporter#configuration |
+| `systemd_exporter_unit_allowlist` | "" | Include some systemd units. Expects a regex. More in https://github.com/prometheus-community/systemd_exporter#configuration |
+| `systemd_exporter_unit_denylist` | "" | Exclude some systemd units. Expects a regex. More in https://github.com/prometheus-community/systemd_exporter#configuration |
 
 ## Example
 
