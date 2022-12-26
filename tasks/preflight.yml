@@ -56,7 +56,7 @@
 - block:
     - name: Get latest release
       uri:
-        url: "https://api.github.com/repos/povilasv/systemd_exporter/releases/latest"
+        url: "https://api.github.com/repos/prometheus-community/systemd_exporter/releases/latest"
         method: GET
         return_content: true
         status_code: 200
@@ -80,7 +80,7 @@
 - block:
     - name: Get checksum list from github
       set_fact:
-        _checksums: "{{ lookup('url', 'https://github.com/povilasv/systemd_exporter/releases/download/v' + systemd_exporter_version + '/sha256sums.txt', wantlist=True) | list }}"
+        _checksums: "{{ lookup('url', 'https://github.com/prometheus-community/systemd_exporter/releases/download/v' + systemd_exporter_version + '/sha256sums.txt', wantlist=True) | list }}"
       run_once: true
 
     - name: "Get checksum for {{ go_arch }} architecture"
