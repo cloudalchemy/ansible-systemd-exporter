@@ -10,6 +10,10 @@ systemd_exporter_enable_file_descriptor_size: false
 systemd_exporter_unit_includelist: ""
 systemd_exporter_unit_excludelist: ""
 
+systemd_exporter_tls_server_config: ""
+systemd_exporter_http_server_config: ""
+systemd_exporter_basic_auth_users: ""
+
 # Following variables are meant for advanced users only. Changing those is not supported.
 
 _systemd_exporter_binary_install_dir: "/usr/local/bin"
