@@ -30,6 +30,9 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `systemd_exporter_enable_file_descriptor_size` | false | Enables file descriptor size metrics. This feature will cause exporter to run as root as it needs access to /proc/X/fd |
 | `systemd_exporter_unit_includelist` | "" | Include some systemd units. Expects a regex. More in https://github.com/povilasv/systemd_exporter#configuration |
 | `systemd_exporter_unit_excludelist` | "" | Exclude some systemd units. Expects a regex. More in https://github.com/povilasv/systemd_exporter#configuration |
+| `systemd_exporter_tls_server_config` | "" | See [exporter-toolkit's https README](https://github.com/prometheus/exporter-toolkit/blob/v0.1.0/https/README.md) |
+| `systemd_exporter_http_server_config` | "" | See [exporter-toolkit's https README](https://github.com/prometheus/exporter-toolkit/blob/v0.1.0/https/README.md) |
+| `systemd_exporter_basic_auth_users` | "" | See [exporter-toolkit's https README](https://github.com/prometheus/exporter-toolkit/blob/v0.1.0/https/README.md) |
 
 ## Example
 
