@@ -18,11 +18,11 @@ ExecStart={{ _systemd_exporter_binary_install_dir }}/systemd_exporter \
 {% if systemd_exporter_enable_ip_accounting %}
     --systemd.collector.enable-ip-accounting \
 {% endif %}
-{% if systemd_exporter_unit_whitelist != ""%}
-    --systemd.collector.unit-include={{ systemd_exporter_unit_whitelist }} \
+{% if systemd_exporter_unit_includelist != ""%}
+    --systemd.collector.unit-include="{{ systemd_exporter_unit_includelist }}" \
 {% endif %}
-{% if systemd_exporter_unit_blacklist != "" %}
-    --systemd.collector.unit-exclude={{ systemd_exporter_unit_blacklist }} \
+{% if systemd_exporter_unit_excludelist != "" %}
+    --systemd.collector.unit-exclude="{{ systemd_exporter_unit_excludelist }}" \
 {% endif %}
     --web.listen-address={{ systemd_exporter_web_listen_address }}
 
