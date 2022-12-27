@@ -8,6 +8,28 @@
     mode: 0644
   notify: restart systemd_exporter
 
+- block:
+    - name: Create systemd_exporter config directory
+      file:
+        path: "/etc/systemd_exporter"
+        state: directory
+        owner: root
+        group: root
+        mode: u+rwX,g+rwX,o=rX
+
+    - name: Copy the systemd_exporter config file
+      template:
+        src: config.yaml.j2
+        dest: /etc/systemd_exporter/config.yaml
+        owner: root
+        group: "{{_systemd_exporter_system_group}}"
+        mode: 0640
+      notify: restart systemd_exporter
+  when:
+    ( systemd_exporter_tls_server_config | length > 0 ) or
+    ( systemd_exporter_http_server_config | length > 0 ) or
+    ( systemd_exporter_basic_auth_users | length > 0 )
+
 - name: Allow systemd_exporter port in SELinux on RedHat OS family
   seport:
     ports: "{{ systemd_exporter_web_listen_address.split(':')[-1] }}"
