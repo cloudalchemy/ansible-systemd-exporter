@@ -22,7 +22,7 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| `systemd_exporter_version` | 0.4.0 | SystemD exporter package version. Also accepts latest as parameter. |
+| `systemd_exporter_version` | 0.5.0 | SystemD exporter package version. Also accepts latest as parameter. |
 | `systemd_exporter_binary_local_dir` | "" | Allows to use local packages instead of ones distributed on github. As parameter it takes a directory where `systemd_exporter` binary is stored on host on which ansible is ran. This overrides `systemd_exporter_version` parameter |
 | `systemd_exporter_web_listen_address` | "0.0.0.0:9558" | Address on which systemd exporter will listen |
 | `systemd_exporter_enable_restart_count` | false | Enables service restart count metrics. This feature only works with systemd 235 and above |
