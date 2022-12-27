@@ -9,7 +9,7 @@
 
 ## Description
 
-Deploy prometheus [systemd exporter](https://github.com/povilasv/systemd_exporter) using ansible.
+Deploy prometheus [systemd exporter](https://github.com/prometheus-community/systemd_exporter) using ansible.
 
 ## Requirements
 
